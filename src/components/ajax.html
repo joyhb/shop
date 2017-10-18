@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    {{list}}
+  <script type="text/javascript">
+    var list = [];
+    function ajax() {
+      _this = this
+      axios.get('https://m.tuniu.com/mapi/channel/getCmsChannelAjax?pageId=2060&cityCode=602')
+        .then(function (response) {
+          _this.list = response.data
+          console.log(response);
+          console.log(_this.list);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+    ajax();
+  </script>
+  </body>
+</html>
